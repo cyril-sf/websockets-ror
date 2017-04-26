@@ -1,11 +1,12 @@
 class ReleasesController < ApplicationController
+  include JSONAPI::Utils
   before_action :set_release, only: [:show, :update, :destroy]
 
   # GET /releases
   def index
     @releases = Release.all
 
-    render json: @releases
+    jsonapi_render json: @releases
   end
 
   # GET /releases/1
